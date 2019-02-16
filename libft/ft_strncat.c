@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/17 10:57:53 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:00:29 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strncat(char *dest, const char *src, size_t nb)
 {
-	if (ac == 2)
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	while (dest[j])
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		j++;
 	}
-	return (0);
+	while (src[i] && i < nb)
+	{
+		dest[j + i] = src[i];
+		i++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
 }

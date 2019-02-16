@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/18 20:04:54 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:15:03 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+int		ft_isprint(int c)
 {
-	if (ac == 2)
-	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
-	}
-	return (0);
+	return (c >= 32 && c <= 126);
 }

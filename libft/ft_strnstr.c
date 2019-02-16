@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/18 17:09:55 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:05:04 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strnstr(const char *hk, const char *nl, size_t len)
 {
-	if (ac == 2)
+	size_t	i;
+	int		t;
+	size_t	j;
+	int		needle_len;
+
+	i = 0;
+	t = 0;
+	needle_len = ft_strlen((char*)nl);
+	if (nl[i] == '\0')
+		return ((char*)hk);
+	while (hk[i] && nl[t] && i < len)
 	{
-		if (process_input())
+		t = 0;
+		j = i;
+		while (hk[j] && nl[t] && hk[j] == nl[t] && j < len)
 		{
-			resolve_puzzle();
-			display_result();
+			j++;
+			t++;
 		}
+		if (t == needle_len)
+			return ((char*)hk + i);
+		else
+			i++;
 	}
 	return (0);
 }

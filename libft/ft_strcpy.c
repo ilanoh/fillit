@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/17 10:55:52 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 14:51:01 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	if (ac == 2)
+	int i;
+
+	i = 0;
+	while (src[i])
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		dst[i] = src[i];
+		i++;
 	}
-	return (0);
+	dst[i] = '\0';
+	return (dst);
 }

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/12/13 13:37:53 by iohayon           #+#    #+#             */
+/*   Updated: 2019/01/19 18:53:37 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+void	*ft_memalloc(size_t size)
 {
-	if (ac == 2)
+	char	*ptr;
+	size_t	i;
+
+	i = 0;
+	ptr = (char*)malloc(size);
+	if (ptr == NULL)
+		return (NULL);
+	while (i < size)
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		ptr[i] = 0;
+		i++;
 	}
-	return (0);
+	return (ptr);
 }

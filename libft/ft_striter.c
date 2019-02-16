@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/12/13 14:09:51 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:29:36 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	if (ac == 2)
+	size_t	size;
+	size_t	i;
+
+	if (s && f)
 	{
-		if (process_input())
+		size = ft_strlen(s);
+		i = 0;
+		if (s)
 		{
-			resolve_puzzle();
-			display_result();
+			while (i < size)
+			{
+				f(s);
+				i++;
+				s++;
+			}
 		}
 	}
-	return (0);
 }

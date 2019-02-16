@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/18 20:19:50 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:19:45 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+int		ft_tolower(int c)
 {
-	if (ac == 2)
-	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
-	}
-	return (0);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
 }

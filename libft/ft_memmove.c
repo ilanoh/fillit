@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/11 17:14:05 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 14:46:33 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (ac == 2)
+	unsigned char *dst2;
+	unsigned char *src2;
+
+	dst2 = (unsigned char *)dst;
+	src2 = (unsigned char *)src;
+	if ((dst < (src + len)) && (src < dst))
 	{
-		if (process_input())
+		while (len)
 		{
-			resolve_puzzle();
-			display_result();
+			len--;
+			dst2[len] = src2[len];
 		}
 	}
-	return (0);
+	else
+		dst = ft_memcpy(dst, src, len);
+	return (dst);
 }

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/11 10:47:20 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 14:45:32 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (ac == 2)
+	unsigned char	a;
+	unsigned char	*tab;
+	size_t			i;
+
+	a = (unsigned char)c;
+	tab = (unsigned char *)b;
+	i = 0;
+	while (i < len)
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		tab[i] = a;
+		i++;
 	}
-	return (0);
+	return (b);
 }

@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2019/02/03 15:26:44 by iohayon           #+#    #+#             */
+/*   Updated: 2019/02/03 16:14:26 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#ifndef FILLIT_H
+# define FILLIT_H
 
-int		main(int ac, char **av)
-{
-	if (ac == 2)
-	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
-	}
-	return (0);
-}
+int		main(int ac, char **av);
+
+#endif

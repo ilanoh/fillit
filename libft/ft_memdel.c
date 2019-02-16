@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/12/13 14:08:09 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:23:43 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+void	ft_memdel(void **ap)
 {
-	if (ac == 2)
+	if (ap)
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		free(*ap);
+		*ap = NULL;
 	}
-	return (0);
 }

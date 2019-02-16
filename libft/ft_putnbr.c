@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/07/09 09:00:20 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:48:05 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+void	ft_putnbr(int n)
 {
-	if (ac == 2)
+	char c;
+
+	if (n >= 0 && n < 10)
+		ft_putchar(n + 48);
+	if (n > 9 && n <= 2147483647)
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		ft_putnbr(n / 10);
+		c = n % 10 + 48;
+		ft_putchar(c);
 	}
-	return (0);
+	if (n < 0 && n > -2147483648)
+	{
+		n = -n;
+		ft_putchar(45);
+		ft_putnbr(n);
+	}
+	if (n == -2147483648)
+	{
+		ft_putchar(45);
+		ft_putchar(50);
+		ft_putnbr(147483648);
+	}
 }

@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/17 10:56:18 by iohayon           #+#    #+#             */
+/*   Updated: 2019/02/02 15:42:56 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strdup(const char *src)
 {
-	if (ac == 2)
+	int		i;
+	char	*str;
+
+	i = 0;
+	while (src[i])
+		i++;
+	if (!(str = (char*)malloc(sizeof(*str) * (i + 1))))
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		str[i] = src[i];
+		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }

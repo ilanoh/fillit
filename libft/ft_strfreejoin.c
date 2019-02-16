@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strfreejoin.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2019/02/02 17:46:37 by iohayon           #+#    #+#             */
+/*   Updated: 2019/02/02 17:54:08 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strfreejoin(char const *s1, char const *s2)
 {
-	if (ac == 2)
+	char	*str;
+	int		i;
+	int		j;
+	int		taille;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	taille = ft_strlen(s1) + ft_strlen(s2);
+	if (!(str = (char *)ft_memalloc(sizeof(char) * (taille + 1))))
+		return (NULL);
+	while (s1[i])
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		str[i] = s1[i];
+		i++;
 	}
-	return (0);
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	free((void *)s1);
+	return (str);
 }

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:12 by iohayon          ###   ########.fr       */
+/*   Created: 2018/11/18 16:01:25 by iohayon           #+#    #+#             */
+/*   Updated: 2018/12/15 15:02:49 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int		main(int ac, char **av)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (ac == 2)
+	int		i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		if (c == s[i])
+			return ((char *)s + i);
+		i--;
 	}
-	return (0);
+	return (NULL);
 }
