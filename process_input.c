@@ -6,7 +6,7 @@
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 16:14:41 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/23 19:14:17 by iohayon          ###   ########.fr       */
+/*   Updated: 2019/02/23 19:28:52 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int		check_tetri(char **tetri)
 		{
 			j = 0;
 			contact = 0;
-			if (ft_strchr(tetri[i - 1]) != "#" || ft_strchr(tetri[i - 1]) != ".")
+			if (ft_strchr(tetri[i - 1], 35) || ft_strchr(tetri[i - 1], 46))
 				return (0);
 			if (ft_strlen(tetri[i - 1]) != 4)
 				return (0);
 			while (tetri[i - 1][j] && tetri[i - 1][j + 1])
 			{
-				if ((tetri[i - 1][j] == "#") && (tetri[i - 1][j + 1] == "#"))
+				if ((tetri[i - 1][j], "#") && (tetri[i - 1][j + 1] == "#"))
 					contact++;
 				if (tetri[i - 1][j - 1] && (tetri[i - 1][j] == "#")
 						&& (tetri[i - 1][j - 1] == "#"))
