@@ -6,7 +6,7 @@
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 15:26:44 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/03 16:14:26 by iohayon          ###   ########.fr       */
+/*   Updated: 2019/02/23 19:08:51 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define FILLIT_H
 
 int		main(int ac, char **av);
+
+int		get_next_line(const int fd, char **line);
 
 #endif

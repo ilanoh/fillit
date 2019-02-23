@@ -6,33 +6,90 @@
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 16:14:41 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/16 19:10:43 by iohayon          ###   ########.fr       */
+/*   Updated: 2019/02/23 19:14:17 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		process_input()
+char	**create_tetriminos(int fd, char **line)
 {
-	int		fd;
 	int		i;
-	char	**line;
+	int		j;
+	int		k;
+	int		l;
+	char	**tetri;
 
-	i = 0;
 	while (get_next_line(fd, &line))
 	{
-		if (i % 4 != 0 || i == 0)
+		i = 0;
+		j = 0;
+		while (line[i])
 		{
-			if (ft_strchr(line[i]) != "#" || ft_strchr(line[i]) != ".")
-				return (0);
-			if (ft_strlen(line[i]) != 4)
-				return (0);
+			while (line[i][j])
+			{
+				line[i][j] = tetri[k][l];
+				j++;
+				l++;
+			}
+			i++;
+			k++;
 		}
-		if (i & 4 == 0)
-			if (ft_strchr(line[i]) != '\n')
-				return (0);
-		i++;
 	}
-	if (i != 20)
+	return (tetri);
+}
+
+int		check_tetri(char **tetri)
+{
+	int	i;
+	int	j;
+	int	contact;
+
+	i = 1;
+	while (tetri[i - 1])
+	{
+		while (i % 5 != 0)
+		{
+			j = 0;
+			contact = 0;
+			if (ft_strchr(tetri[i - 1]) != "#" || ft_strchr(tetri[i - 1]) != ".")
+				return (0);
+			if (ft_strlen(tetri[i - 1]) != 4)
+				return (0);
+			while (tetri[i - 1][j] && tetri[i - 1][j + 1])
+			{
+				if ((tetri[i - 1][j] == "#") && (tetri[i - 1][j + 1] == "#"))
+					contact++;
+				if (tetri[i - 1][j - 1] && (tetri[i - 1][j] == "#")
+						&& (tetri[i - 1][j - 1] == "#"))
+					contact++;
+				if (tetri[i - 2] && (tetri[i - 1][j] == "#") && (tetri[i - 2][j]))
+					contact++;
+				if (tetri[i] && (tetri[i - 1][j] == "#") && (tetri[i][j]))
+	                    contact++;
+				j++;
+			}
+			i++;
+		}
+		while (i % 5 == 0)
+		{
+			if (ft_strchr(tetri[i - 1]) != '\n')
+				return (0);
+			i++;
+		}
+	}
+	if (i > 130)
 		return (0);
+	if (contact != 6)
+		return (0);
+}
+
+int     process_input()
+{
+	int     fd;
+	char    **line;
+	char    **tetri;
+
+	tetri = create_tetriminos(fd, line);
+	check_tetri(tetri);
 }
