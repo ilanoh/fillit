@@ -5,22 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iohayon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/03 15:05:10 by iohayon           #+#    #+#             */
-/*   Updated: 2019/02/16 18:56:46 by iohayon          ###   ########.fr       */
+/*   Created: 2019/03/10 12:24:36 by iohayon           #+#    #+#             */
+/*   Updated: 2019/03/10 13:42:43 by iohayon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
+int		main(int ac, **av)
 {
+	t_list	*list;
+	t_tab	*tab;
+
 	if (ac == 2)
 	{
-		if (process_input())
-		{
-			resolve_puzzle();
-			display_result();
-		}
+		list = resolve(list);
+		display(tab);
 	}
-	return (0);
 }
